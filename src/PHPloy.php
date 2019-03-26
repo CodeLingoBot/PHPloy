@@ -431,7 +431,7 @@ class PHPloy
     {
         if (!file_exists($iniFile)) {
             throw new \Exception("'$iniFile' does not exist.");
-        } else {
+        } else{
             $values = parse_ini_file($iniFile, true);
             if (!$values) {
                 throw new \Exception("'$iniFile' is not a valid .ini file.");
@@ -501,7 +501,7 @@ class PHPloy
             if (!$overwriteArrayValues && is_array($v) && isset($new[$k]) && is_array($new[$k])) {
                 $merged[$k] = array_merge($v, $new[$k]);
             }
-            else if (isset($new[$k])) {
+            elseif (isset($new[$k])) {
                 $merged[$k] = $new[$k];
             }
             else {
@@ -802,7 +802,7 @@ class PHPloy
 
             if ($this->listFiles) {
                 $this->listFiles($files[$this->currentServerName]);
-            } else {
+            } else{
                 // Pre Deploy
                 if (isset($this->preDeploy[$name]) && count($this->preDeploy[$name]) > 0) {
                     $this->preDeploy($this->preDeploy[$name]);
@@ -848,9 +848,7 @@ class PHPloy
                 if (isset($this->postDeployRemote[$name]) && count($this->postDeployRemote[$name]) > 0) {
                     $this->postDeployRemote($this->postDeployRemote[$name]);
                 }
-            }
-
-            // Done
+            }        // Done
             if (!$this->listFiles) {
                 $this->cli->bold()->lightGreen("\r\n|---------------[ ".human_filesize($this->deploymentSize).' Deployed ]---------------|');
                 $this->deploymentSize = 0;
