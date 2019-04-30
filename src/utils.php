@@ -46,7 +46,7 @@ function dir_tree($directory, $recursive = true, $listDirs = false, $listFiles =
                         $file = $directory.'/'.$file;
                         $arrayItems[] = $file;
                     }
-                } else {
+                } else{
                     if ($listFiles) {
                         $file = $directory.'/'.$file;
                         $arrayItems[] = $file;
